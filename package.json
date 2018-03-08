@@ -1,8 +1,10 @@
 {
   "name": "wx-api-common",
-  "version": "1.0.0",
+  "version": "1.0.3",
   "description": "基于微信小程序wx.request的一个api请求",
-  "main": "api/api.js",
+  "author": "Chang <584911924@qq.com>",
+  "main": "api/index.js",
+  "files": ["api"],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -10,7 +12,6 @@
     "type": "git",
     "url": "git+https://github.com/ChangLCS/ceyice.git"
   },
-  "author": "",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/ChangLCS/ceyice/issues"
