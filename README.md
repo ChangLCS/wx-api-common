@@ -5,7 +5,7 @@
 
 ### 例子
 
-* 全局配置文件 index.js 的写法，之后每个文件引用改文件即可
+* 全局配置文件 index.js 的写法，之后每个文件引用该文件即可
 
 ```
 import api from '../modules/wx-api-common/api/index.js';
