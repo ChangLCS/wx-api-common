@@ -1,10 +1,12 @@
 {
   "name": "wx-api-common",
-  "version": "1.0.7",
+  "version": "1.0.6",
   "description": "基于微信小程序wx.request的一个api请求",
   "author": "Chang <584911924@qq.com>",
   "main": "api/index.js",
-  "files": ["api"],
+  "files": [
+    "api"
+  ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -16,5 +18,6 @@
   "bugs": {
     "url": "https://github.com/ChangLCS/ceyice/issues"
   },
-  "homepage": "https://github.com/ChangLCS/ceyice#readme"
+  "homepage": "https://github.com/ChangLCS/ceyice#readme",
+  "dependencies": {}
 }
