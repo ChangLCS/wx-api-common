@@ -168,4 +168,6 @@ apiFun.prototype = {
 
 const api = new apiFun();
 
-module.exports = api;
+//  CommonJS 规范才是 module.exports
+//  这里改成用 ES6 的 export
+export default api;

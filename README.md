@@ -1,14 +1,22 @@
 ### 封装了 wx.request 的 方法
 
-* get
-* post
+- get
+- post
 
 ### 例子
 
-* 全局配置文件 index.js 的写法，之后每个文件引用该文件即可
+- 先安装
 
 ```
-import api from '../modules/wx-api-common/api/index.js';
+npm i wx-api-common
+```
+
+- 使用小程序构建 npm
+
+- 全局配置文件 index.js 的写法，之后每个文件引用该文件即可
+
+```
+import api from 'wx-api-common';
 
 export default api.setOption({
   baseUrl: '', //  接口的基础地址配置
@@ -22,7 +30,3 @@ export default api.setOption({
   },
 });
 ```
-
-# npm i wx-api-common
-
-# 小程序不支持 'node_modules'，所以在安装后把文件夹名称改成 'modules'，这是个很坑的地方
