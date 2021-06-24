@@ -84,7 +84,7 @@ apiFun.prototype = {
    * @param {*} path 接口地址
    * @param {*} data 参数
    */
-  get(path, data) {
+  get(path, data, otherParam) {
     //  请求前先拦截一下，看用户有没有自定义事件
     if (typeof this.request === 'function') {
       this.request(this);
@@ -113,6 +113,7 @@ apiFun.prototype = {
 
           return reject(res);
         },
+        ...otherParam,
       });
     };
 
@@ -128,7 +129,7 @@ apiFun.prototype = {
    *  param,
    * });
    */
-  post(path, data, params) {
+  post(path, data, params, otherParam) {
     //  请求前先拦截一下，看用户有没有自定义事件
     if (typeof this.request === 'function') {
       this.request(this);
@@ -160,6 +161,7 @@ apiFun.prototype = {
 
           return reject(res);
         },
+        ...otherParam,
       });
     };
     return new Promise(_);
