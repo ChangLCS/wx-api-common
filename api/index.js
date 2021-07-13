@@ -56,7 +56,9 @@ const urlParams = (url, params) => {
 
 //  根据baseUrl跟path，得出api 的真正地址
 const getUrl = (baseUrl, path) =>
-  /(http:\/\/|https:\/\/)/.test(path) ? path : `${baseUrl || ''}${path}`;
+  /(http:\/\/|https:\/\/)/.test(path)
+    ? path
+    : `${(baseUrl || '').replace(/\/$/, '')}/${(path || '').replace(/^\//, '')}`;
 
 apiFun.prototype = {
   baseUrl: '',
