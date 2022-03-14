@@ -87,9 +87,17 @@ apiFun.prototype = {
    * @param {*} data 参数
    */
   get(path, data, otherParam) {
+    //  定义传输参数抛出，供使用
+    const parameter = {
+      path,
+      data: {},
+      params: data,
+      otherParam,
+    };
+
     //  请求前先拦截一下，看用户有没有自定义事件
     if (typeof this.request === 'function') {
-      this.request(this);
+      this.request(this, parameter);
     }
 
     const _ = (resolve, reject) => {
@@ -102,18 +110,18 @@ apiFun.prototype = {
         success: (res) => {
           //  回调前先拦截一下，看用户有没有自定义事件
           if (typeof this.response === 'function') {
-            this.response(res);
+            this.response(res, parameter);
           }
 
-          return resolve(res);
+          return resolve(res, parameter);
         },
         fail: (res) => {
           //  回调前先拦截一下，看用户有没有自定义事件
           if (typeof this.response === 'function') {
-            this.response(res);
+            this.response(res, parameter);
           }
 
-          return reject(res);
+          return reject(res, parameter);
         },
         ...otherParam,
       });
@@ -132,12 +140,20 @@ apiFun.prototype = {
    * });
    */
   post(path, data, params, otherParam) {
+    const paramsSend = params && typeof params === 'object' ? params.params : {};
+
+    //  定义传输参数抛出，供使用
+    const parameter = {
+      path,
+      data,
+      params: paramsSend,
+      otherParam,
+    };
+
     //  请求前先拦截一下，看用户有没有自定义事件
     if (typeof this.request === 'function') {
-      this.request(this);
+      this.request(this, parameter);
     }
-
-    const paramsSend = params && typeof params === 'object' ? params.params : {};
 
     const _ = (resolve, reject) => {
       wx.request({
@@ -150,18 +166,18 @@ apiFun.prototype = {
         success: (res) => {
           //  回调前先拦截一下，看用户有没有自定义事件
           if (typeof this.response === 'function') {
-            this.response(res);
+            this.response(res, parameter);
           }
 
-          return resolve(res);
+          return resolve(res, parameter);
         },
         fail: (res) => {
           //  回调前先拦截一下，看用户有没有自定义事件
           if (typeof this.response === 'function') {
-            this.response(res);
+            this.response(res, parameter);
           }
 
-          return reject(res);
+          return reject(res, parameter);
         },
         ...otherParam,
       });
